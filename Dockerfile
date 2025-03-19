@@ -130,9 +130,8 @@ RUN apk add -U --no-cache ffmpeg mpv sqlite
 # Copy navidrome binary
 COPY --from=build /out/navidrome /app/
 
-#VOLUME ["/data", "/music"]
-ENV ND_MUSICFOLDER="/data/music"
-#ENV ND_MUSICFOLDER=/music
+VOLUME ["/data", "/music"]
+ENV ND_MUSICFOLDER=/music
 ENV ND_DATAFOLDER=/data
 ENV ND_PORT=4533
 ENV GODEBUG="asyncpreemptoff=1"
